@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Welcome To Posh Palace</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <!-- <link href="css/owl.theme.default.css" rel="stylesheet"> -->
+
+    <link href="css/flexslider.css" rel="stylesheet">
+    <link href="css/prettyphoto.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <style>
+
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 120px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  z-index: 1000 !important;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto;
+		  padding: 5px;
+		  border: 1px solid #888;
+		  width: 50%;
+		}
+
+		input[type="date"]
+		{
+		  border: 1px solid transparent !important;
+		}
+		input[type="time"]
+		{
+		  border: 1px solid transparent !important;
+		}
+
+	</style>
+
+</head>
+<body onload="initial()" style="background-color: #f5f5f5 !important;">
+
+	<div id="bigHeaderId">
+
+		<div class="header-list">
+			<ul>
+				<li><i class="fa fa-clock-o"></i> MON - SAT 8:00am - 6:00pm</li> &nbsp;&nbsp;/&nbsp;&nbsp;
+				<li><a href="tel:+254703373795" style="color: #fff !important;"><i class="fa fa-phone"></i> Call &nbsp; +254 703373795</a></li>
+			</ul>
+		</div>
+		<div class="header-nav-links">
+			<a href="index.html" class="logo"><img src="images/logo2.png" alt=""></a>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li class="has-dropdown active"><a href="#">Hair</a>
+					<ul class="menu-dropdown">
+						<li><a href="hair.html">Treatments</a></li>
+						<li><a href="hair.html">Styling</a></li>
+						<li><a href="hair.html">Relaxers</a></li>
+						<li><a href="hair.html">Colors</a></li>
+						<li><a href="hair.html">Braids</a></li>
+						<li><a href="hair.html">Natural Hair</a></li>
+					</ul>
+				</li>
+				<li><a href="beauty.html">Beauty</a></li>
+				<li><a href="spa.html">SPA</a></li>
+				<li><a href="barber.html">Barber</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+				<button class="booking-button" onclick="showAppointmentForm()"> Book Appointment</button>
+			</ul>
+		</div>
+	</div>
+
+		<div class="booking-form" id="bookAppointmentForm">
+			<form action="" method="post">
+				<ul>
+					<li>
+						<i class="fa fa-user"></i>
+	                    <input type="text" placeholder="First Name*" required>
+	                </li>
+	                <li>
+	                	<i class="fa fa-user"></i>
+	                	<input type="text" placeholder="Last Name*" required>
+	                </li>
+	                <li>
+	                	<i class="fa fa-phone"></i>
+	                    <input type="text" placeholder="Phone No." required>
+	                </li>
+	                <li>
+	                	<i class="fa fa-envelope"></i>
+	                	<input type="text" placeholder="Email">
+	                </li>
+	                <li>
+	                	<i class="fa fa-calendar"></i>
+	                	<div class="form-group">
+	                		<div class='input-group date' id='datetimepicker1'>
+	                			<input type='date' class="form-control date-input" />
+	                		</div>
+	                	</div>
+	                </li>
+	                <li>
+	                	<i class="fa fa-clock-o"></i>
+	                	<div class="form-group">
+	                		<div class='input-group date' id='datetimepicker3'>
+	                            <!-- <input type='text' class="form-control" /> -->
+	                            <select class='input-group date'>
+	                                <option value="08:00">08:00</option>
+	                               	<option value="08:00">09:00</option>
+	                               	<option value="08:00">10:00</option>
+	                               	<option value="08:00">11:00</option>
+	                               	<option value="08:00">12:00</option>
+	                               	<option value="08:00">13:00</option>
+	                               	<option value="08:00">14:00</option>
+	                               	<option value="08:00">15:00</option>
+	                               	<option value="08:00">16:00</option>
+	                               	<option value="08:00">17:00</option>
+	                               	<option value="08:00">18:00</option>
+	                               	<option value="08:00">19:00</option>
+	                               	<option value="08:00">20:00</option>
+	                               	<option value="08:00">21:00</option>
+	                            </select>
+	                        </div>
+	                    </div>
+	                </li>
+	                <li class="ec-textarea">
+	                	<textarea placeholder="Message"></textarea>
+	                </li>
+	                <li>
+	                	<input type="submit" value="Submit" onclick="bookNow()">
+	                </li>
+	            </ul>
+	        </form>
+	    </div>
+
+	<div id="smallHeaderID" class="sticky-header">
+		<div class="header-nav-links">
+			<a href="index.html" class="logo"><img style="margin-top: 25px;" src="images/sticky-logo.png" alt=""></a>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li class="has-dropdown2 active"><a href="#">Hair</a>
+					<ul class="menu-dropdown2">
+						<li><a href="hair.html">Treatments</a></li>
+						<li><a href="hair.html">Styling</a></li>
+						<li><a href="hair.html">Relaxers</a></li>
+						<li><a href="hair.html">Colors</a></li>
+						<li><a href="hair.html">Braids</a></li>
+						<li><a href="hair.html">Natural Hair</a></li>
+					</ul>
+				</li>
+				<li><a href="beauty.html">Beauty</a></li>
+				<li><a href="spa.html">SPA</a></li>
+				<li><a href="barber.html">Barber</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+				<a href="#"><button class="booking-button" onclick="showAppointmentForm()"> Book Appointment</button></a>
+			</ul>
+		</div>
+	</div>
+
+    <div class="divider-section">
+        <div class="in-divider-section">
+          <h2><br/><br/><br/>Hair rituals</h2>
+          <p>
+            Fusce placerat mollis tellus ut porta. Cras efficitur consequat massa sit amet hendrerit. Cras posuere mi quis leo commodo egestas. Sed porta pulvinar nisl, quis mollis risus ultrices vitae. Morbi interdum..
+            leo at pulvinar tempor.
+          </p>
+        </div>
+    </div>
+
+    <div class="about-description">
+    	<img src="images/image-Hair-01.jpg">
+    	<div class="more-about">
+    		<p>
+    			<br/>
+    			Fusce placerat mollis tellus ut porta. Cras efficitur consequat massa sit amet hendrerit. Cras posuere mi quis leo commodo egestas. Sed porta pulvinar nisl, quis mollis risus ultrices vitae. Morbi interdum..<br /> 
+            </p>
+            <div class="products-package-list">
+            	<p><span class="primary-color">+</span> Treatment</p>
+            	<p><span class="primary-color">+</span> Natural Hair</p>
+                <p><span class="primary-color">+</span> Relaxers</p>
+                <p><span class="primary-color">+</span> Styling</p>
+                <p><span class="primary-color">+</span> Color</p>
+                <p><span class="primary-color">+</span> Braids</p>
+            </div>          
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="products-container">
+
+    	<div class="product-item">
+    		<img src="images/Hair-2-02.jpg" alt="">
+    		<div class="product-descriptions">
+	    		<button onclick="showModal()" class="primary-btn product-book-button">Book Now</button>
+	    		<h4>KES 4,000 &nbsp;&nbsp; <span style="font-weight: bold !important;">Hair Color</span></h4>
+	    	</div>
+    	</div>
+    	<div class="product-item">
+    		<img src="images/Hair-2-02-02.jpg" alt="">
+    		<div class="product-descriptions">
+	    		<button onclick="showModal()" class="primary-btn product-book-button">Book Now</button>
+	    		<h4>KES 4,000 &nbsp;&nbsp; <span style="font-weight: bold !important;">Hair Treatment</span></h4>
+	    	</div>
+    	</div>
+    	<div class="product-item">
+    		<img src="images/Hair-2-02-02-02.jpg" alt="">
+    		<div class="product-descriptions">
+	    		<button onclick="showModal()" class="primary-btn product-book-button">Book Now</button>
+	    		<h4>KES 4,000 &nbsp;&nbsp; <span style="font-weight: bold !important;">Hair Styling</span></h4>
+	    	</div>
+    	</div>
+
+    	<div class="product-item">
+    		<img src="images/Hair-2-02-02-02-02.jpg" alt="">
+    		<div class="product-descriptions">
+	    		<button onclick="showModal()" class="primary-btn product-book-button">Book Now</button>
+	    		<h4>KES 4,000 &nbsp;&nbsp; <span style="font-weight: bold !important;">Hair Color</span></h4>
+	    	</div>
+    	</div>
+    	<div class="product-item">
+    		<img src="images/Hair-3-02.jpg" alt="">
+    		<div class="product-descriptions">
+	    		<button onclick="showModal()" class="primary-btn product-book-button">Book Now</button>
+	    		<h4>KES 4,000 &nbsp;&nbsp; <span style="font-weight: bold !important;">Hair Treatment</span></h4>
+	    	</div>
+    	</div>
+    	<div class="product-item">
+    		<img src="images/Hair-4-02-02.jpg" alt="">
+    		<div class="product-descriptions">
+	    		<button onclick="showModal()" class="primary-btn product-book-button">Book Now</button>
+	    		<h4>KES 4,000 &nbsp;&nbsp; <span style="font-weight: bold !important;">Hair Styling</span></h4>
+	    	</div>
+    	</div> 
+	</div>
+
+    <!--/ Footer /-->
+      <footer class="footer">
+
+        <!--/ Footer Widget /-->
+        <div class="footer-widget">
+          <div class="container">
+            <div class="row">
+              <!--/ Widget LatestNews /-->
+              <div class="widget col-md-4 widget_latest_news">
+                <div class="main-title footer-links-title"><h2>Quick Links</h2></div>
+                <ul class="footer-links">
+                  <li>
+                  	<a href="#">Blog</a>
+                  </li>
+                  <li>
+                  	<a href="#">Catalogue</a>
+                  </li>
+                  <li>
+                  	<a href="#">Polished</a>
+                  </li>
+                  <li>
+                  	<a href="#">Gallery</a>
+                  </li>
+                </ul>
+
+                <img src="images/lipa-na-mpesa.png" style="width: 50% !important;">
+                <div style="width: 100% !important; margin-top: 15px !important;">
+                	<img style="width: 16% !important; float: left !important;" src="images/Background33.png">
+                	<img style="width: 11% !important; float: left !important; margin-left: 2% !important;" src="images/Background31.png">
+                	<img style="width: 11% !important; float: left !important; margin-left: 2% !important;" src="images/Background32.png">
+                </div>
+              </div>
+              <!--/ Widget LatestNews /-->
+              <!--/ Widget LatestNews /-->
+              <div class="widget col-md-4 widget_latest_news">
+                <div class="main-title footer-links-title"><h2>Information</h2></div>
+                <ul class="footer-links">
+                  <li>
+                  	<a href="#">Shipping & Returns</a>
+                  </li>
+                  <li>
+                  	<a href="#">Term Of Service</a>
+                  </li>
+                  <li>
+                  	<a href="#">Privacy Policy</a>
+                  </li>
+                  <li>
+                  	<a href="#">Contact Us</a>
+                  </li>
+                  <li>
+                  	<a href="#">Track Your Order</a>
+                  </li>
+                </ul>
+              </div>
+              <!--/ Widget LatestNews /-->
+
+              <div class="widget col-md-3 widget_bookingform">
+                <div class="main-title footer-links-title"> <h2>Subscribe</h2> </div>
+                <p style="color: #fff !important;">
+                	Sign up to our mailing list
+                </p>
+                <form>
+                	<input type="email" placeholder="Your Email" style="width: 77% !important; float: left; height: 40px;">
+                	<input type="submit" value="OK" style="width: 20% !important; float: left; height: 40px; background-color: #cd5700 !important; color: #fff !important; border: 2px solid #cd5700 !important; margin-left: 2% !important;">
+
+                  <!-- <ul>
+                    <li><i class="flaticon-black302"></i> <input type="text" placeholder="Name" required></li>
+                    <li><i class="flaticon-telephone5"></i> <input type="text" placeholder="Phone no." required></li>
+                    <li><i class="flaticon-wallclock"></i> <input type="text" placeholder="Time Schedule" required></li>
+                    <li><i class="fa fa-envelope"></i> <input type="text" placeholder="Enter your eamil address" required></li>
+                    <li><label><input class="ec-bgcolor" type="submit" value="Book Now"></label></li>
+                  </ul> -->
+                </form>
+                
+
+                <div class="social-network">
+                  <h6><!-- Fallow us --></h6>
+                  <p style="color: #fff !important;">
+                  	<br/>
+	                	Our Social Platform
+	                </p>
+                  <ul>
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ Footer Widget /-->
+        <div class="bottom-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6"><div class="copyright"><p style="color: #fff !important;">2020 Posh Palace. All Rights Reserved. Designed and developped by <a href="#"  style="color: #fff !important;">Wakurushi</a></p></div></div>
+              <div class="col-md-6" style="float: right !important;">
+                <a href="#"  style="color: #fff !important;">Terms & Conditions &nbsp;&nbsp; </a>
+                <a href="#"  style="color: #fff !important;">Privacy Policy &nbsp;&nbsp; </a>
+                <a href="#"  style="color: #fff !important;">| &nbsp;&nbsp; Contact Us &nbsp;&nbsp; </a>
+                <!-- <a href="#" class="backtop-btn"><img src="images/back-top.png" alt=""></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </footer>
+      <!--/ Footer /-->
+
+       <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" style="background-color: #f5f3f4 !important;">
+
+        <!-- <div class="close">&times;</div> -->
+
+        <div style="background-color: #cd5700 !important; color: #fff !important; float: right; margin-right: -40px; margin-top: -30px; font-size: 30px; font-weight: bold; height: 50px; width: 50px; padding-left: 16px; padding-top: 5px; border-radius: 50%;" class="close-now" onclick="hideModal()">
+          X
+        </div>
+        
+        <form class="popover-form">
+          <input class="text-input" type="text" name="" placeholder="Your Name">
+          <input class="text-input" type="text" name="" placeholder="Your Number">
+          <input class="text-input" type="text" name="" placeholder="Your Email">
+
+          <div style="border: 2px solid #999999 !important;
+            background-color: #fff !important;
+            border-radius: 50px !important;
+            width: 100% !important;
+            height: 45px !important;
+            margin-top: 20px !important;
+            padding-left: 20px !important;">
+            <input style="width: 50% !important; float: left !important;" type="date" name="" placeholder="Booking Date">
+            <input style="width: 45% !important; float: right !important; border-left: 2px solid #999999 !important; margin-top: 2px !important; margin-right: 5% !important;" type="time" name="">
+          </div>
+          <textarea rows="5" placeholder="Message"></textarea>
+          <button class="more-button" onclick="bookNow()">SUBMIT </button> 
+        </form>
+      </div>
+
+    </div>
+
+
+	<script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/jquery.dlmenu.js"></script>
+    <script src="script/flexslider-min.js"></script>
+    <script src="script/jquery.countdown.min.js"></script>
+    <script src="script/jquery.prettyphoto.js"></script>
+    <script src="script/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+    	$(document).ready(function() {
+		$('.flexslider').flexslider({
+		    animation: "slide",
+		    animationLoop: true,
+		    itemWidth: 400,
+		    itemMargin: 3
+		  });
+		});
+    </script>
+
+    <script type="text/javascript">
+    	$('.word-count').each(function () {
+		  var $this = $(this);
+		  jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+		    duration: 1000,
+		    easing: 'swing',
+		    step: function () {
+		      $this.text(Math.ceil(this.Counter));
+		    }
+		  });
+		});
+    </script>
+
+	<script type="text/javascript">
+		//Slick Carousel Controllers
+		$(".testimonial-reel").slick({
+		  centerMode: true,
+		  /*centerPadding: "40px",*/
+		  dots: true,
+		  slidesToShow: 2,
+		  infinite: true,
+		  arrows: false,
+		  lazyLoad: "ondemand",
+		  /*responsive: [
+		    {
+		      breakpoint: 1024,
+		      settings: {
+		        slidesToShow: 2,
+		        centerMode: false
+		      }
+		    },
+		    {
+		      breakpoint: 767,
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		  ]*/
+		});
+	</script>
+  
+    <script type="text/javascript">
+
+    	$('#owl-carousel').owlCarousel({
+		    loop: true,
+		    margin: 30,
+		    dots: true,
+		    nav: true,
+		    items: 3,
+		})
+
+    	function showAppointmentForm() {
+	        document.getElementById('bookAppointmentForm').style.display = 'block';
+	    }
+
+	    function hideAppointmentForm() {
+	    	document.getElementById('bookAppointmentForm').style.display = 'none';
+	    }
+
+	    function bookNow() {
+	      Swal.fire({
+	        title: "Success!",
+	        text: "Booking successful!",
+	        icon: "success",
+	      });
+	    }
+
+	    function initial() {
+
+    		document.getElementById('bookAppointmentForm').style.display = 'none';
+
+		    document.getElementById("smallHeaderID").style.display = "none";
+		    document.getElementById("bigHeaderId").style.display = "block";
+    	}    	
+    	
+    </script>
+
+    <script type="text/javascript">
+    	window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+		    document.getElementById("smallHeaderID").style.display = "block";
+		    document.getElementById("bigHeaderId").style.display = "none";
+		  } else {
+		    document.getElementById("smallHeaderID").style.display = "none";
+		    document.getElementById("bigHeaderId").style.display = "block";
+		  }
+		} 
+    </script>
+
+    <script>
+	    // Get the modal
+	    var modal = document.getElementById("myModal");
+
+	    // Get the button that opens the modal
+	    var btn = document.getElementById("myBtn");
+
+	    // Get the <span> element that closes the modal
+	    var span = document.getElementsByClassName("close-now")[0];
+
+	    // When the user clicks the button, open the modal 
+	    btn.onclick = function() {
+	      modal.style.display = "block";
+	    }
+
+	    function showModal() {
+	      modal.style.display = "block";
+	    }
+
+	    function hideModal() {
+	      modal.style.display = "none";
+	    }
+
+	    // When the user clicks on <span> (x), close the modal
+	    span.onclick = function() {
+	      modal.style.display = "none";
+	    }
+
+	    // When the user clicks anywhere outside of the modal, close it
+	    window.onclick = function(event) {
+	      if (event.target == modal) {
+	        modal.style.display = "none";
+	      }
+	    }
+    </script>
+
+</body>
+</html>
